@@ -36,6 +36,7 @@ public class BMI extends HttpServlet {
 	        out.println("Cân nặng (kg): <input type='text' name='weight'><br>");
 	        out.println("<input type='submit' value='Tính BMI'>");
 	        out.println("</form>");
+	        out.println("</body></html>");
 	}
 
 	/**
@@ -64,6 +65,9 @@ public class BMI extends HttpServlet {
 	                else category = "Béo phì";
 	            } catch (NumberFormatException e) {
 	                category = "Dữ liệu không hợp lệ!";
+	            }
+	            if (!category.isEmpty()) {
+	                out.printf("<h3>Kết quả: BMI = %.2f - %s</h3>", bmi, category);
 	            }
 	        }
 	}
