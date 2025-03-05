@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhập Thông Tin Sinh Viên</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-100">
+
+    <div id="displayInfo" class=" bg-white shadow-lg rounded-lg p-6 w-96 mt-6 text-center">
+        <h2 class="text-2xl font-semibold text-gray-700 mb-4">Thông Tin Sinh Viên</h2>
+        <p><strong>MSSV:</strong> <span th:text=${mssv}></span></p>
+        <p><strong>Họ và Tên:</strong> <span th:text=${hoTen}></span></p>
+        <p><strong>Năm Sinh:</strong> <span th:text=${namSinh}></span></p>
+        <p><strong>Giới Tính:</strong> <span th:text=${gioiTinh}></span></p>
+    </div>
+
+   
+</body>
+</html>
