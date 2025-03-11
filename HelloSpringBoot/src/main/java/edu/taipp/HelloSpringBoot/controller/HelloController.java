@@ -11,4 +11,9 @@ public class HelloController {
 		m.addAttribute("tb", "Dữ liệu thông báo xin chào");
 		return "welcome";
 	}
+	
+	@RequestMapping("/you")
+	public String hi() {
+		return "name";
+	}
 }
