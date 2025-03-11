@@ -18,6 +18,27 @@ public class HomeController {
 		return "index";
 	}
 	
+	@RequestMapping("/dang-nhap")
+	public String dangNhap() {
+		return "dangnhap";
+	}
+	
+	@RequestMapping("/xac-thuc")
+	public String xacThuc(@RequestParam(name="ID", defaultValue = "", required = true) String id,
+							@RequestParam(name="password", defaultValue = "", required = true) String password,
+							Model model) {
+		if(id.equals("ABC")) {
+			if(password.equals("XYZ") ) {
+				return "home";
+			}else {
+				model.addAttribute("check", "Mật khẩu không đúng");
+			}
+		}else {
+			model.addAttribute("check","Tài khoản không đúng");
+		}
+		return "dangnhap";
+	}
+	
 	@RequestMapping("/object")
 	public String truyenDoiTuong(ModelMap m) {
 		SinhVien sv1 = new SinhVien("64132083", "Phạm Phước Tài", 2004);
