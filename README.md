@@ -3,6 +3,9 @@
 
 ### **Phát triển ứng dụng web 2**
 
+**SpringBoot_Fragment**
+![enter image description here](https://files.catbox.moe/j1b2xh.png)
+
 **SpringBoot_BMI**
 ![enter image description here](https://files.catbox.moe/r0r5s9.png)
 *result*

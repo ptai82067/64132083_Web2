@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+    <!-- Header -->
+    <header th:replace="fragments/header::head_layout"></header>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar" th:replace="fragments/sidebar::sidebar_layout"></aside>
+
+        <!-- Nội dung chính -->
+        <main class="content mt-5">
+            <h1>Chào mừng đến với trang của bạn!</h1>
+            <p>Đây là phần nội dung chính. ld
+            
+You said:
+ok, tiếp theo làm phần sidebar 
+ChatGPT said:
+Dưới đây là một file sidebar.html sử dụng Bootstrap, thiết kế hiện đại và dễ sử dụng. Sidebar này bao gồm:
+
+Danh mục điều hướng: Các mục như Trang chủ, Hồ sơ, Cài đặt
+
+Tương thích với mọi thiết bị (Responsive)
+
+Hiệu ứng hover đẹp mắt
+
+Tích hợp biểu tượng (icon) từ Bootstrap Icons       
+            Giải thích:
+✅ Responsive: Sử dụng Bootstrap để hiển thị đẹp trên mọi thiết bị
+✅ Màu sắc hiện đại: Header có hiệu ứng gradient xanh tím đẹp mắt
+✅ Thanh menu điều hướng: Chứa các mục quan trọng như Trang chủ, Giới thiệu, Dịch vụ
+✅ Nút Đăng nhập/Đăng ký: Nút có hiệu ứng màu sắc nổi bật
+
+💡 Bạn có thể thay đổi logo, tên trang web và menu theo ý muốn. Nếu muốn dùng header này trong một dự án lớn, có thể tách riêng thành file header.html và dùng include trong các framework như PHP, ASP.NET.
+            </p>
+        </main>
+    </div>
+    <footer th:replace="fragments/footer::footer_layout">
+    	
+    </footer>
+</body>
+</html>
