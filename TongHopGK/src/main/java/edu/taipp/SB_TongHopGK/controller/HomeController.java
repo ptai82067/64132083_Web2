@@ -12,6 +12,7 @@ import edu.taipp.SB_TongHopGK.model.SinhVien;
 
 @Controller
 public class HomeController {
+	List<SinhVien> listSV = new ArrayList<SinhVien>();
 	@RequestMapping("/")
 	public String homePage() {
 		
@@ -30,7 +31,7 @@ public class HomeController {
 			@RequestParam(name="diemTB", defaultValue = "8.7", required = true) String diemTB,
 			
 			Model model) {
-		List<SinhVien> listSV = new ArrayList<SinhVien>();
+		
 		try {
 	        float diem = Float.parseFloat(diemTB); // Chuyển đổi String -> float
 	        listSV.add(new SinhVien(MSSV, hoTen, diem));

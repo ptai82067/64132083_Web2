@@ -5,7 +5,7 @@
 
 **Tổng Hợp Giữ Kỳ**
 ![enter image description here](https://files.catbox.moe/2elo43.png)
-![enter image description here](https://files.catbox.moe/9yv0l7.png)
+![enter image description here](https://files.catbox.moe/r1aqx2.png)
 **SpringBoot_Fragment**
 ![enter image description here](https://files.catbox.moe/j1b2xh.png)
 
