@@ -3,6 +3,9 @@
 
 ### **Phát triển ứng dụng web 2**
 
+**Tổng Hợp Giữ Kỳ**
+![enter image description here](https://files.catbox.moe/k0gagp.png)
+![enter image description here](https://files.catbox.moe/wn71pu.png)
 **SpringBoot_Fragment**
 ![enter image description here](https://files.catbox.moe/j1b2xh.png)
 
