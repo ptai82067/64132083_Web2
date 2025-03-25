@@ -40,7 +40,12 @@
     <!-- Nội dung chính -->
     <div class="main-content">
         <h1>Danh Sách Sinh Viên!</h1>
-        <p>Đây là phần nội dung chính. Nếu muốn dùng header này trong một dự án lớn, có thể tách riêng thành file `header.html` và dùng `include` trong các framework như PHP, ASP.NET.</p>
+       <div th:each="sv : ${listSV}">
+        <p>MSSV: <span th:text="${sv.MSSV}"></span></p>
+        <p>Họ Tên: <span th:text="${sv.hoTen}"></span></p>
+        <p>Điểm TB: <span th:text="${sv.diemTB}"></span></p>
+        <hr>
+    </div>
     </div>
 </div>
 
