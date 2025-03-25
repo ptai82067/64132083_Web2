@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm sinh viên</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    
+</head>
+<body>
+	<style>
+		.container {
+		    display: flex;
+		    max-width: 1200px; /* Điều chỉnh độ rộng tối đa */
+		    margin: 0 auto; /* Căn giữa nội dung */
+		}
+		
+		.sidebar {
+		    width: 250px; /* Điều chỉnh chiều rộng của sidebar */
+		    background-color: #2c3e50;
+		    color: white;
+		    padding: 20px;
+		}
+		
+		.main-content {
+		    flex-grow: 1;
+		    padding: 20px;
+		    background-color: #fff;
+		    max-width: 90%;
+    		margin-top: 38px;
+		}
+		
+	</style>
+    <!-- Header -->
+    <header th:replace="fragments/header::head_layout"></header>
+
+   <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar" th:replace="fragments/sidebar::sidebar_layout"></aside>
+
+    <!-- Nội dung chính -->
+    <div class="main-content">
+        <h1>Thêm Mới Sinh Viên!</h1>
+       <form action="student-list" method="GET">
+       		<label for="mssv">MSSV:</label>
+		    <input type="text" id="mssv" name="MSSV" required><br>
+		
+		    <label for="hoTen">Họ Tên:</label>
+		    <input type="text" id="hoTen" name="hoTen" required><br>
+		
+		    <label for="diemTB">Điểm TB:</label>
+		    <input type="number" step="0.1" id="diemTB" name="diemTB" required><br>
+		
+		    <button type="submit">Thêm Sinh Viên</button>
+       </form>
+    </div>
+</div>
+
+    <footer th:replace="fragments/footer::footer_layout">
+    	
+    </footer>
+</body>
+</html>

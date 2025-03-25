@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.taipp.SB_TongHopGK.model.SinhVien;
 
@@ -24,8 +25,18 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/student-list")
-	public String listPage(Model model) {
+	public String listPage(@RequestParam(name="MSSV", defaultValue = "64132000", required = true) String MSSV,
+			@RequestParam(name="hoTen", defaultValue = "Phạm Thi Ngọc Duyên", required = true) String hoTen,
+			@RequestParam(name="diemTB", defaultValue = "8.7", required = true) String diemTB,
+			
+			Model model) {
 		List<SinhVien> listSV = new ArrayList<SinhVien>();
+		try {
+	        float diem = Float.parseFloat(diemTB); // Chuyển đổi String -> float
+	        listSV.add(new SinhVien(MSSV, hoTen, diem));
+	    } catch (NumberFormatException e) {
+	        System.out.println("Lỗi: Điểm không hợp lệ!");
+	    }
 		listSV.add(new SinhVien("64132083", "Phạm Phước Tài", 8.5f));
 	    listSV.add(new SinhVien("64132084", "Nguyễn Văn An", 7.8f));
 	    listSV.add(new SinhVien("64132085", "Trần Thị B", 9.2f));
