@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="dasdboard/fragments/head::head">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+
+  <header th:replace="dasdboard/fragments/header::header"></header>
+
+  <!-- =============================================== -->
+
+  <!-- Left side column. contains the sidebar -->
+	<aside th:replace="dasdboard/fragments/sidebar::sidebar"></aside>
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+
+    <!-- Main content -->
+    <section class="content">
+
+     <div class="card shadow-lg p-4">
+            <h1 class="text-center text-primary">Thêm Mới Topic</h1>
+         	 <form action="/dasdboard/student/add-new" method="POST">
+	    <div class="mb-3">
+	        <label for="id" class="form-label">Student ID:</label>
+	        <input type="text" class="form-control" id="id" name="id" required>
+	    </div>
+	
+	    <div class="mb-3">
+	        <label for="name" class="form-label">Student Name:</label>
+	        <input type="text" class="form-control" id="name" name="name" required>
+	    </div>
+	
+	    <div class="mb-3">
+	        <label for="groupId" class="form-label">Group ID:</label>
+	        <input type="text" class="form-control" id="groupId" name="groupId" required>
+	    </div>
+	
+	    <div class="text-center mt-3">
+	        <button type="submit" class="btn btn-primary px-4">Add Student</button>
+	    </div>
+	</form>
+
+
+        </div>
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+<footer th:replace="dasdboard/fragments/footer::footer"></footer>
+</div>
+<!-- jQuery 3 -->
+
+<script th:src="@{/assets/js/jquery.min.js}"></script>
+<script th:src="@{/assets/js/jquery-ui.js}"></script>
+<script th:src="@{/assets/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/js/adminlte.min.js}"></script>
+<script th:src="@{/assets/js/dashboard.js}"></script>
+<script th:src="@{/assets/js/function.js}"></script>
+</body>
+</html>

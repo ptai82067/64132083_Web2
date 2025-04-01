@@ -6,7 +6,10 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import thiGK.ntu64132083.model.Student;
 import thiGK.ntu64132083.model.Topic;
@@ -37,4 +40,38 @@ private static final List<Student> listStudent = new ArrayList<Student>();
 		
 		return "dasdboard/student";
 	}
+	
+	@GetMapping("/new")
+	public String createSV() {
+		return "dasdboard/ql_student/add_student";
+	}
+	
+	@PostMapping("/add-new")
+	public String addStudent(@RequestParam String id, 
+	                         @RequestParam String name, 
+	                         @RequestParam String groupId, 
+	                         Model model) {
+	    listStudent.add(new Student(id, name, groupId));
+	    model.addAttribute("listStudent", listStudent);
+	    return "redirect:/dasdboard/student";
+	}
+	
+	 @GetMapping("/view/{id}")
+	   public String editTopic(@PathVariable String id, Model model) {
+	       for (Student st : listStudent) {
+	           if (st.getId().equals(id)) {
+	               model.addAttribute("st", st);
+	               break;
+	           }
+	       }
+	       return "dasdboard/ql_student/view_student"; // Trả về trang chỉnh sửa
+	   }
+	
+	 @GetMapping("/delete/{id}")
+	    public String deleteStudent(@PathVariable String id) {
+	        listStudent.removeIf(sv -> sv.getId().equals(id));
+	        return "redirect:/dasdboard/student"; // Reload lại danh sách
+	    }
+
+	
 }
