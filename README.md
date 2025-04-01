@@ -6,9 +6,9 @@
 **Thi Giữ Kỳ**
 
 ![enter image description here](https://files.catbox.moe/bl5mp5.png)
-![enter image description here](https://files.catbox.moe/yikmin.png)
-![enter image description here](https://files.catbox.moe/i1nwy3.png)
-![enter image description here](https://files.catbox.moe/vsc96h.png)
+![enter image description here](https://files.catbox.moe/b4zbx5.png)
+![enter image description here](https://files.catbox.moe/56247b.png)
+![enter image description here](https://files.catbox.moe/xfsxft.png)
 
 ![enter image description here](https://files.catbox.moe/c41pu9.png)
 ![enter image description here](https://files.catbox.moe/xb2nns.png)
