@@ -70,7 +70,7 @@
 			            	 <a th:href="@{/dasdboard/topic/view/{id}(id=${topic.id})}" class="btn btn-success">View</a>
 			                <a th:href="@{/dasdboard/topic/edit/{id}(id=${topic.id})}" class="btn btn-success">Edit</a>
 			                <a href="#" class="btn btn-danger" onclick="confirmDelete(this)" 
-			                   th:data-url="@{dasdboard/topic/delete/{id}(id=${topic.id})}">
+			                   th:data-url="@{/dasdboard/topic/delete/{id}(id=${topic.id})}">
 			                   Delete
 			                </a>
 			            </td>

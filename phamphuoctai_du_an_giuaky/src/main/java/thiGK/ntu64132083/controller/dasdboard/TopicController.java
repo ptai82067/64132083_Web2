@@ -73,11 +73,11 @@ public class TopicController {
        return "dasdboard/ql_topic/view_topic"; // Trả về trang chỉnh sửa
    }
 	
-//    @GetMapping("/delete/{mssv}")
-//    public String deleteTopic(@PathVariable String mssv) {
-//        listTopic.removeIf(sv -> sv.getMSSV().equals(mssv));
-//        return "redirect:/dasdboard/sinh-vien"; // Reload lại danh sách
-//    }
+    @GetMapping("/delete/{id}")
+    public String deleteTopic(@PathVariable String id) {
+        listTopic.removeIf(sv -> sv.getId().equals(id));
+        return "redirect:/dasdboard/topic"; // Reload lại danh sách
+    }
 
 //    @GetMapping("/edit/{mssv}")
 //    public String editTopic(@PathVariable String mssv, Model model) {
