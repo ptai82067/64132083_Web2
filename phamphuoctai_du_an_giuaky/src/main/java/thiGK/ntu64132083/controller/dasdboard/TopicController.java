@@ -56,12 +56,22 @@ public class TopicController {
 	            listTopic.add(new Topic(id, topicName, topicDescription, supervisorId, topicType));
 	        } catch (Exception e) {
 	            model.addAttribute("error", "Invalid input. Please check your data.");
-	            return "dashboard/ql_topic/add_topic";
+	            return "dasdboard/ql_topic/add_topic";
 	        }
-	        return "redirect:/dashboard/topic";
+	        return "redirect:/dasdboard/topic";
 	    }
 
 	
+   @GetMapping("/view/{id}")
+   public String editTopic(@PathVariable String id, Model model) {
+       for (Topic tp : listTopic) {
+           if (tp.getId().equals(id)) {
+               model.addAttribute("tp", tp);
+               break;
+           }
+       }
+       return "dasdboard/ql_topic/view_topic"; // Trả về trang chỉnh sửa
+   }
 	
 //    @GetMapping("/delete/{mssv}")
 //    public String deleteTopic(@PathVariable String mssv) {
