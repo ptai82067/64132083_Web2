@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="admin/fragments/head::head"></head>
+<head th:replace="dasdboard/fragments/head::head"></head>
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
 
-  <header th:replace="admin/fragments/header::header"></header>
+  <header th:replace="dasdboard/fragments/header::header"></header>
 
   <!-- =============================================== -->
 
   <!-- Left side column. contains the sidebar -->
-	<aside th:replace="admin/fragments/sidebar::sidebar"></aside>
+	<aside th:replace="dasdboard/fragments/sidebar::sidebar"></aside>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -34,7 +34,7 @@
       <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-           <a th:href="@{/admin/sinh-vien/them-sv}" class="btn btn-success">+Thêm mới Menu</a>
+           <a th:href="@{/dasdboard/topic/new}" class="btn btn-success">+Thêm mới Topic</a>
 
               <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -67,10 +67,10 @@
 			            <td th:text="${topic.supervisorId}"></td>
 			            <td th:text="${topic.topicType}"></td>
 			            <td>
-			            	 <a th:href="@{/admin/topic/view/{id}(id=${topic.id})}" class="btn btn-success">View</a>
-			                <a th:href="@{/admin/topic/edit/{id}(id=${topic.id})}" class="btn btn-success">Edit</a>
+			            	 <a th:href="@{/dasdboard/topic/view/{id}(id=${topic.id})}" class="btn btn-success">View</a>
+			                <a th:href="@{/dasdboard/topic/edit/{id}(id=${topic.id})}" class="btn btn-success">Edit</a>
 			                <a href="#" class="btn btn-danger" onclick="confirmDelete(this)" 
-			                   th:data-url="@{/admin/topic/delete/{id}(id=${topic.id})}">
+			                   th:data-url="@{dasdboard/topic/delete/{id}(id=${topic.id})}">
 			                   Delete
 			                </a>
 			            </td>
@@ -90,7 +90,7 @@
   </div>
   <!-- /.content-wrapper -->
 
-<footer th:replace="admin/fragments/footer::footer"></footer>
+<footer th:replace="dasdboard/fragments/footer::footer"></footer>
 </div>
 <!-- jQuery 3 -->
 

@@ -3,6 +3,10 @@
 
 ### **Phát triển ứng dụng web 2**
 
+**Thi Giữ Kỳ**
+![enter image description here](https://files.catbox.moe/juwb5c.png)
+![enter image description here](https://files.catbox.moe/550rk4.png)
+
 **Tổng Hợp Giữ Kỳ**
 ![enter image description here](https://files.catbox.moe/2elo43.png)
 ![enter image description here](https://files.catbox.moe/r1aqx2.png)
