@@ -45,22 +45,21 @@ public class TopicController {
 		return "dasdboard/ql_topic/add_topic";
 	}
 	
-	@PostMapping("/add-new")
-	public String create(@RequestParam(name = "id", defaultValue = "", required = true) String id,
-	                     @RequestParam(name = "topicName", defaultValue = "", required = true) String topicName,
-	                     @RequestParam(name = "topicDescription", defaultValue = "", required = true) String topicDescription,
-	                     @RequestParam(name = "supervisorId", defaultValue = "", required = true) String supervisorId,
-	                     @RequestParam(name = "topicType", defaultValue = "", required = true) String topicType,
-	                     Model model) {
-	    try {
-	        listTopic.add(new Topic(id, topicName, topicDescription, supervisorId, topicType));
-	    } catch (Exception e) {
-	        model.addAttribute("error", "Invalid input. Please check your data.");
-	        return "dashboard/ql_topic/add_topic";
+	 @PostMapping("/add-new")
+	    public String create(@RequestParam String id,
+	                         @RequestParam String topicName,
+	                         @RequestParam String topicDescription,
+	                         @RequestParam String supervisorId,
+	                         @RequestParam String topicType,
+	                         Model model) {
+	        try {
+	            listTopic.add(new Topic(id, topicName, topicDescription, supervisorId, topicType));
+	        } catch (Exception e) {
+	            model.addAttribute("error", "Invalid input. Please check your data.");
+	            return "dashboard/ql_topic/add_topic";
+	        }
+	        return "redirect:/dashboard/topic";
 	    }
-	    model.addAttribute("listTopic", listTopic);
-	    return "redirect:/dashboard/topic";
-	}
 
 	
 	
