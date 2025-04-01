@@ -49,31 +49,35 @@
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
-                <tbody>
-                
-                <tr>
-                  <th>MSSV</th>
-                  <th>Họ Tên</th>
-                  <th>Điểm TB</th>
-                  <th>Tùy chọn</th>
-                </tr>
-                
-                <tr th:each="sv : ${listSV}">
-                  <td th:text="${sv.MSSV}"></td>
-                  <td th:text="${sv.hoTen}"></td>
-                  <td th:text="${sv.diemTB}"></td>
-              
-                  <td>
-                  <a th:href="@{/admin/sinh-vien/edit/{mssv}(mssv=${sv.MSSV})}" class="btn btn-success" >Sửa</a>
-                <a href="#" class="btn btn-danger" onclick="confirmDelete(this)" 
-				   th:data-url="@{/admin/sinh-vien/delete/{mssv}(mssv=${sv.MSSV})}">
-				   Xóa
-				</a>
-                    
-                  </td>
-                </tr>
-                
-              </tbody></table>
+			    <thead>
+			        <tr>
+			            <th>ID</th>
+			            <th>Topic Name</th>
+			            <th>Description</th>
+			            <th>Supervisor ID</th>
+			            <th>Topic Type</th>
+			            <th>Actions</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <tr th:each="topic : ${listTopic}">
+			            <td th:text="${topic.id}"></td>
+			            <td th:text="${topic.topicName}"></td>
+			            <td th:text="${topic.topicDescription}"></td>
+			            <td th:text="${topic.supervisorId}"></td>
+			            <td th:text="${topic.topicType}"></td>
+			            <td>
+			            	 <a th:href="@{/admin/topic/view/{id}(id=${topic.id})}" class="btn btn-success">View</a>
+			                <a th:href="@{/admin/topic/edit/{id}(id=${topic.id})}" class="btn btn-success">Edit</a>
+			                <a href="#" class="btn btn-danger" onclick="confirmDelete(this)" 
+			                   th:data-url="@{/admin/topic/delete/{id}(id=${topic.id})}">
+			                   Delete
+			                </a>
+			            </td>
+			        </tr>
+			    </tbody>
+			</table>
+
             </div>
             <!-- /.box-body -->
           </div>

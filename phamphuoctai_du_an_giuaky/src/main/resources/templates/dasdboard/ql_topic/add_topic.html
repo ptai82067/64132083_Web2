@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/fragments/head::head">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+
+  <header th:replace="admin/fragments/header::header"></header>
+
+  <!-- =============================================== -->
+
+  <!-- Left side column. contains the sidebar -->
+	<aside th:replace="admin/fragments/sidebar::sidebar"></aside>
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+
+    <!-- Main content -->
+    <section class="content">
+
+     <div class="card shadow-lg p-4">
+            <h1 class="text-center text-primary">Thêm Mới Topic</h1>
+            <form th:action="@{/dashboard/topic/add-new}" method="POST">
+			    <div class="mb-3">
+			        <label for="id" class="form-label">Topic ID:</label>
+			        <input type="text" class="form-control" id="id" name="id" required>
+			    </div>
+			
+			    <div class="mb-3">
+			        <label for="topicName" class="form-label">Topic Name:</label>
+			        <input type="text" class="form-control" id="topicName" name="topicName" required>
+			    </div>
+			
+			    <div class="mb-3">
+			        <label for="topicDescription" class="form-label">Description:</label>
+			        <textarea class="form-control" id="topicDescription" name="topicDescription" required></textarea>
+			    </div>
+			
+			    <div class="mb-3">
+			        <label for="supervisorId" class="form-label">Supervisor ID:</label>
+			        <input type="text" class="form-control" id="supervisorId" name="supervisorId" required>
+			    </div>
+			
+			    <div class="mb-3">
+			        <label for="topicType" class="form-label">Topic Type:</label>
+			        <select class="form-control" id="topicType" name="topicType" required>
+			            <option value="Research">Research</option>
+			            <option value="Development">Development</option>
+			            <option value="Analysis">Analysis</option>
+			        </select>
+			    </div>
+			
+			    <div class="text-center mt-3">
+			        <button type="submit" class="btn btn-primary px-4">Add Topic</button>
+			    </div>
+			</form>
+
+        </div>
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+<footer th:replace="admin/fragments/footer::footer"></footer>
+</div>
+<!-- jQuery 3 -->
+
+<script th:src="@{/assets/js/jquery.min.js}"></script>
+<script th:src="@{/assets/js/jquery-ui.js}"></script>
+<script th:src="@{/assets/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/js/adminlte.min.js}"></script>
+<script th:src="@{/assets/js/dashboard.js}"></script>
+<script th:src="@{/assets/js/function.js}"></script>
+</body>
+</html>
