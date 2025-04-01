@@ -3,8 +3,16 @@
     <a href="../../index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>N</b>TU</span>
+      <style>
+      	.logo-img {
+		  width: 150px;
+		  height: 50px;
+		  object-fit: contain; /* Giữ nguyên tỷ lệ */
+		}
+      	
+      </style>
       <!-- logo for regular state and mobile devices -->
-      <img th:src="@{/assets/images/logo_ntu.png}" class="" alt="User Image">
+      <img th:src="@{/assets/images/logo_ntu.png}" class="logo-img" alt="User Image" >
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
