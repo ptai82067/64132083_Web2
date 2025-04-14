@@ -5,6 +5,11 @@
 
 **Thi Giữ Kỳ**
 
+## Các bài tập được thực hiện
+|Giao diện Login|Giao diện Profile|
+|:--------------|:----------------|
+|<img src="https://files.catbox.moe/bl5mp5.png" width="600"> |<img src="https://files.catbox.moe/b4zbx5.png" width="600">|
+
 ![enter image description here](https://files.catbox.moe/bl5mp5.png)
 ![enter image description here](https://files.catbox.moe/b4zbx5.png)
 ![enter image description here](https://files.catbox.moe/56247b.png)
