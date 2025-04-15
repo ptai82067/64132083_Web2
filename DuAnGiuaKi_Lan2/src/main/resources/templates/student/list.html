@@ -1,0 +1,42 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head::head"></head>
+<body>
+<div class="container-fluid">
+    <div th:replace="fragments/header::header"></div>
+
+    <div class="row">
+        <div th:replace="fragments/sidebar::sidebar"></div>
+		
+        <!-- Main Content -->
+        <div class="col-md-10 content">
+           <table class="table table-hover">
+			    <thead>
+			        <tr>
+			            <th>ID</th>
+			            <th>Name</th>
+			            <th>Group ID</th>
+			            <th>Actions</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <tr th:each="student : ${listStudent}">
+			            <td th:text="${student.id}"></td>
+			            <td th:text="${student.name}"></td>
+			            <td th:text="${student.groupId}"></td>
+			            <td>
+			            	<a th:href="@{/student/view/{id}(id=${student.id})}" >[View]</a>
+			                <a href="#" >[Edit]</a>
+			                <a th:href="@{/student/delete/{id}(id=${student.id})}">[Delete]</a>
+			            </td>
+			        </tr>
+			    </tbody>
+			</table>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div th:replace="fragments/footer::footer"></div>
+</div>
+</body>
+</html>

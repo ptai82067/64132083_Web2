@@ -3,12 +3,29 @@
 
 ### **Phát triển ứng dụng web 2**
 
-**Thi Giữ Kỳ**
+**Thi Giữ Kỳ Lần 2**
 
 ## Các bài tập được thực hiện
-|Giao diện Login|Giao diện Profile|
+|Home|..|
 |:--------------|:----------------|
-|<img src="https://files.catbox.moe/bl5mp5.png" width="600"> |<img src="https://files.catbox.moe/b4zbx5.png" width="600">|
+|<img src="https://files.catbox.moe/tx58c4.png" width="600"> |<img src="https://files.catbox.moe/jectzq.png" width="600">|
+
+|List Topic|View|
+|:--------------|:----------------|
+|<img src="https://files.catbox.moe/gkq4xb.png" width="600"> |<img src="https://files.catbox.moe/1ltgue.png" width="600">|
+
+|Add new|Delete|
+|:--------------|:----------------|
+|<img src="https://files.catbox.moe/tcsqdn.png" width="600"> |<img src="https://files.catbox.moe/3b8txm.png" width="600">|
+
+|List Student|View|
+|:--------------|:----------------|
+|<img src="https://files.catbox.moe/frfan4.png" width="600"> |<img src="https://files.catbox.moe/zsttgy.png" width="600">|
+
+|Add new|Delete|
+|:--------------|:----------------|
+|<img src="https://files.catbox.moe/95tzcf.png" width="600"> |<img src="https://files.catbox.moe/c3nga6.png" width="600">|
+
 
 ![enter image description here](https://files.catbox.moe/bl5mp5.png)
 ![enter image description here](https://files.catbox.moe/b4zbx5.png)

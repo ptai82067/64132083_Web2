@@ -1,0 +1,45 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head::head"></head>
+<body>
+<div class="container-fluid">
+    <div th:replace="fragments/header::header"></div>
+
+    <div class="row">
+        <div th:replace="fragments/sidebar::sidebar"></div>
+		
+        <!-- Main Content -->
+        <div class="col-md-10 content">
+          <div class="card p-3">
+    <h2 class="text-center">Thêm Mới Student</h2>
+    
+    <form action="/student/new" method="POST">
+        <div class="mb-2">
+            <label class="float-left">Student ID:</label>
+            <input type="text" class="form-control" id="id" name="id" required>
+        </div>
+
+        <div class="mb-2">
+            <label  class="float-left">Student Name:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+
+        <div class="mb-2">
+            <label  class="float-left">Group ID:</label>
+            <input type="text" class="form-control" id="groupId" name="groupId" required>
+        </div>
+
+        <div class="mt-3 text-center">
+            <button type="submit" class="btn btn-primary">Thêm</button>
+        </div>
+    </form>
+</div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div th:replace="fragments/footer::footer"></div>
+</div>
+</body>
+</html>

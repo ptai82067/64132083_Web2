@@ -1,0 +1,34 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head::head"></head>
+<body>
+<div class="container-fluid">
+    <div th:replace="fragments/header::header"></div>
+
+    <div class="row">
+        <div th:replace="fragments/sidebar::sidebar"></div>
+		
+        <!-- Main Content -->
+        <div class="col-md-10 content">
+           <h2>Topic Details</h2>
+
+		<div style="border: 1px solid #ccc; padding: 15px; border-radius: 5px;">
+		    <p><b>Topic ID:</b> <span th:text="${tp.id}"></span></p>
+		    <p><b>Topic Name:</b> <span th:text="${tp.topicName}"></span></p>
+		    <p><b>Description:</b> <span th:text="${tp.topicDescription}"></span></p>
+		    <p><b>Supervisor ID:</b> <span th:text="${tp.supervisorId}"></span></p>
+		    <p><b>Topic Type:</b> <span th:text="${tp.topicType}"></span></p>
+		</div>
+		
+		<p style="margin-top: 15px;">
+		    <a href="/topic/all">Back to Topics</a>
+		</p>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div th:replace="fragments/footer::footer"></div>
+</div>
+</body>
+</html>

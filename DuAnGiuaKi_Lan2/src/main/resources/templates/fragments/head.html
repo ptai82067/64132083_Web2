@@ -1,0 +1,64 @@
+<head th:fragment = "head">
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .sidebar {
+            background-color: #f8f9fa;
+            height: 100vh;
+            border-right: 1px solid #ccc;
+        }
+
+        .sidebar h5 {
+            font-weight: bold;
+            border-bottom: 1px solid #000;
+            padding-bottom: 5px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 5px 10px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .sidebar a:hover {
+            background-color: #e2e6ea;
+        }
+        
+		.row-content {
+        height: calc(100vh - 80px); /* Tùy chỉnh tùy header/footer */
+    	}
+    	
+        .content {
+            background-color: #f1f1f1;
+            height: 100%;
+            padding: 20px;
+            text-align: center;
+            overflow: auto;
+    		max-height: 100%;
+    		
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            padding: 10px 0;
+            border-top: 1px solid #ccc;
+        }
+
+        .header {
+            border-bottom: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .logo {
+            height: 50px;
+        }
+    </style>
+</head>
