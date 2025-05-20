@@ -2,45 +2,47 @@ package edu.taipp.controller;
 
 import edu.taipp.model.Category;
 import edu.taipp.service.CategoryService;
-import org.springframework.stereotype.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/category")
+@RequestMapping("/api/categories")
 public class CategoryController {
-  CategoryService categoryService;
+  private final CategoryService categoryService;
 
+  @Autowired
   public CategoryController(CategoryService categoryService) {
     this.categoryService = categoryService;
   }
 
-  @GetMapping()
-  public List<Category> getAllCategoryDetails(){
+  @GetMapping
+  public List<Category> getAllCategories() {
     return categoryService.getAllCategorys();
   }
 
-  @GetMapping("{categoryId}")
-  public Category getCategoryDetails(@PathVariable("categoryId") Long categoryId){
-    return categoryService.getCategoryById(categoryId);
+  @GetMapping("/{id}")
+  public ResponseEntity<Category> getCategoryById(@PathVariable Long id) {
+    return ResponseEntity.ok(categoryService.getCategoryById(id));
   }
 
   @PostMapping
-  public String createCategoryDetails(@RequestBody Category category){
-    categoryService.createCategory(category);
-    return "Category created successfully";
+  public ResponseEntity<Category> createCategory(@RequestBody Category category) {
+    return ResponseEntity.ok(categoryService.createCategory(category));
   }
 
-  @PutMapping
-  public String updateCategoryDetails(@RequestBody Category category){
-    categoryService.updateCategory(category);
-    return "Category updated successfully";
+  @PutMapping("/{id}")
+  public ResponseEntity<Category> updateCategory(@PathVariable Long id, @RequestBody Category category) {
+    return ResponseEntity.ok(categoryService.updateCategory(id, category));
   }
-  @DeleteMapping("{categoryId}")
-  public String deleteCategoryDetails(@PathVariable("categoryId") Long categoryId){
-    categoryService.deleteCategoryById(categoryId);
-    return "Category deleted successfully";
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Void> deleteCategory(@PathVariable Long id) {
+    categoryService.deleteCategory(id);
+    return ResponseEntity.noContent().build();
   }
 
 }
