@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Category Form</title>
+</head>
+<body>
+<h1 th:text="${category.id} ? 'Chỉnh sửa danh mục' : 'Tạo mới danh mục'"></h1>
+<form th:action="${category.id} ? @{/admin/categories/edit/{id}(id=${category.id})} : @{/admin/categories/create}"
+      th:object="${category}" method="post">
+    <div>
+        <label for="name">Category Name:</label>
+        <input type="text" id="name" th:field="*{name}" required />
+    </div>
+    <button type="submit">Save</button>
+    <a href="/admin/categories">Cancel</a>
+</form>
+</body>
+</html>
