@@ -7,8 +7,11 @@ import edu.taipp.repository.RatingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class RatingService {
@@ -66,5 +69,24 @@ public class RatingService {
   // Phương thức tìm theo userId và recipeId (tùy chỉnh)
   public Optional<Rating> findByUserIdAndRecipeId(Long userId, Long recipeId) {
     return ratingRepository.findByUserIdAndRecipeId(userId, recipeId);
+  }
+  // Thêm phương thức tính điểm trung bình theo Recipe
+  public Map<Recipe, Double> getAverageRatingByRecipe() {
+    List<Rating> ratings = ratingRepository.findAll();
+    // Nhóm ratings theo Recipe và tính điểm trung bình
+    Map<Recipe, List<Rating>> groupedByRecipe = ratings.stream()
+            .collect(Collectors.groupingBy(Rating::getRecipe));
+
+    Map<Recipe, Double> averageRatings = new HashMap<>();
+    for (Map.Entry<Recipe, List<Rating>> entry : groupedByRecipe.entrySet()) {
+      Recipe recipe = entry.getKey();
+      List<Rating> recipeRatings = entry.getValue();
+      double average = recipeRatings.stream()
+              .mapToInt(Rating::getScore)
+              .average()
+              .orElse(0.0);
+      averageRatings.put(recipe, average);
+    }
+    return averageRatings;
   }
 }
