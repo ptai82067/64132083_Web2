@@ -121,9 +121,9 @@
                     <table class="table table-bordered">
                         <thead>
                         <tr>
-                            <th>Mã Sinh viên</th>
-                            <th>Tên Sinh viên</th>
-                            <th>CRUD Action</th>
+                            <th>Mã danh mục</th>
+                            <th>Tên danh mục</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -131,9 +131,10 @@
                             <td th:text="${category.id}"></td>
                             <td th:text="${category.name}"></td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-primary">Xem</a>
-                                <a href="#" class="btn btn-sm btn-warning">Sửa</a>
-                                <a href="#" class="btn btn-sm btn-danger">Xóa</a>
+                                <a th:href="@{categories/edit/{id}(id=${category.id})}" class="btn btn-sm btn-warning">Sửa</a>
+                                <a th:href="@{/admin/categories/delete/{id}(id=${category.id})}"
+                                   onclick="return confirm('Bạn có chắc chắn muốn xóa không?')"
+                                   class="btn btn-sm btn-danger">Xóa</a>
                             </td>
                         </tr>
                         </tbody>
