@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .menu-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .auth-buttons .join-login {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .nav-toggle {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            background-color: #f5f5f5;
+        }
+
+        .nav-toggle a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            margin: 0 15px;
+            cursor: pointer;
+        }
+
+        .nav-toggle a.active {
+            text-decoration: underline;
+        }
+
+        .nav-menu {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            transition: max-height 0.3s ease-in-out;
+            max-height: 600px;
+            overflow: hidden;
+        }
+
+        .nav-menu.active {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .menu-section {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .menu-section ul {
+            list-style: none;
+        }
+
+        .menu-section ul li {
+            margin: 8px 0;
+        }
+
+        .menu-section ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .menu-section ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<th:block th:fragment="header">
+    <header>
+        <div class="header-container">
+            <div class="menu-icons">
+                <span class="menu-icon">☰</span>
+                <span class="search-icon">🔍</span>
+            </div>
+            <div class="logo">
+                <h1>101 COOKBOOKS</h1>
+            </div>
+            <div class="auth-buttons">
+                <a href="#" class="join-login">Tham gia / Đăng nhập +</a>
+            </div>
+        </div>
+        <div class="nav-toggle">
+            <a th:href="@{/menu(type='categories')}" th:class="${activeTab == 'categories' ? 'toggle-btn active' : 'toggle-btn'}">DANH MỤC</a> |
+            <a th:href="@{/menu(type='ingredients')}" th:class="${activeTab == 'ingredients' ? 'toggle-btn active' : 'toggle-btn'}">NGUYÊN LIỆU</a>
+        </div>
+        <nav class="nav-menu" id="nav-menu" th:class="${activeTab == 'categories' ? 'nav-menu active' : 'nav-menu'}">
+            <div class="menu-section" th:each="category, iterStat : ${categories}" th:if="${activeTab == 'categories'}">
+                <ul>
+                    <li>
+                        <a th:href="@{'/category/' + ${category.name.toLowerCase().replaceAll('\\s+', '-')}}" th:text="${category.name}">Danh mục</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <nav class="nav-menu" id="nav-menu-ingredients" th:class="${activeTab == 'ingredients' ? 'nav-menu active' : 'nav-menu'}">
+            <div class="menu-section" th:each="ingredient, iterStat : ${ingredients}" th:if="${activeTab == 'ingredients'}">
+                <ul>
+                    <li>
+                        <a th:href="@{'/ingredient/' + ${ingredient.name.toLowerCase().replaceAll('\\s+', '-')}}" th:text="${ingredient.name}">Nguyên liệu</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <script>
+        // Toggle menu visibility
+        const menuIcon = document.querySelector('.menu-icon');
+        const navMenus = document.querySelectorAll('.nav-menu');
+
+        menuIcon.addEventListener('click', () => {
+            navMenus.forEach(menu => menu.classList.toggle('active'));
+        });
+    </script>
+</th:block>
+</body>
+</html>
