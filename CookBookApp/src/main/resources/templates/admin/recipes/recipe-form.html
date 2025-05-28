@@ -4,28 +4,49 @@
     <title>Recipe Form</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .image-preview {
+            max-width: 300px;
+            max-height: 300px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .image-preview-container {
+            margin-top: 15px;
+        }
+    </style>
 </head>
 <body>
 <div class="content">
     <div class="container-fluid mt-4">
         <h1 th:text="${recipe.id} ? 'Chỉnh sửa công thức' : 'Tạo mới công thức'"></h1>
         <form th:action="${recipe.id} ? @{/admin/recipes/edit/{id}(id=${recipe.id})} : @{/admin/recipes/create}"
-              th:object="${recipe}" method="post" class="row g-3">
+              th:object="${recipe}" method="post" class="row g-3" enctype="multipart/form-data">
             <div class="col-md-6">
-                <label for="title" class="form-label">Recipe Title:</label>
+                <label for="title" class="form-label">Tiêu đề công thức:</label>
                 <input type="text" id="title" th:field="*{title}" class="form-control" required />
             </div>
             <div class="col-md-6">
-                <label for="description" class="form-label">Description:</label>
+                <label for="description" class="form-label">Mô tả:</label>
                 <input type="text" id="description" th:field="*{description}" class="form-control" required />
             </div>
             <div class="col-md-6">
-                <label for="instructions" class="form-label">Instructions:</label>
+                <label for="instructions" class="form-label">Hướng dẫn:</label>
                 <input type="text" id="instructions" th:field="*{instructions}" class="form-control" required />
             </div>
             <div class="col-md-6">
-                <label for="imageUrl" class="form-label">Image URL:</label>
+                <label for="imageUrl" class="form-label">URL ảnh (hoặc để trống nếu upload):</label>
                 <input type="text" id="imageUrl" th:field="*{imageUrl}" class="form-control" />
+                <label for="imageFile" class="form-label mt-2">Hoặc upload ảnh:</label>
+                <input type="file" id="imageFile" name="imageFile" class="form-control" accept="image/*" />
+                <!-- Hiển thị ảnh preview nếu có imageUrl -->
+                <div th:if="${recipe.imageUrl} != null and ${recipe.imageUrl} != ''" class="image-preview-container">
+                    <label class="form-label">Ảnh hiện tại:</label>
+                    <img th:src="${recipe.imageUrl.startsWith('http') ? recipe.imageUrl : '/uploads/' + recipe.imageUrl}"
+                         alt="Ảnh công thức" class="image-preview" />
+                </div>
             </div>
             <div class="col-md-6">
                 <label for="userId" class="form-label">User ID:</label>
@@ -36,11 +57,28 @@
                 <input type="number" id="categoryId" name="categoryId" class="form-control" required />
             </div>
             <div class="col-12">
-                <button type="submit" class="btn btn-primary">Save</button>
-                <a href="/admin/recipes" class="btn btn-secondary">Cancel</a>
+                <button type="submit" class="btn btn-primary">Lưu</button>
+                <a href="/admin/recipes" class="btn btn-secondary">Hủy</a>
             </div>
         </form>
     </div>
 </div>
+<!-- Bootstrap 5 JS (tùy chọn) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.getElementById('imageFile').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            const preview = document.createElement('img');
+            preview.src = URL.createObjectURL(file);
+            preview.className = 'image-preview';
+            const container = document.querySelector('.image-preview-container') || document.createElement('div');
+            container.className = 'image-preview-container';
+            container.innerHTML = '<label class="form-label">Ảnh xem trước:</label>';
+            container.appendChild(preview);
+            e.target.parentNode.appendChild(container);
+        }
+    });
+</script>
 </body>
 </html>

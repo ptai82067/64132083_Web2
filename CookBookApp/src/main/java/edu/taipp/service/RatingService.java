@@ -89,4 +89,12 @@ public class RatingService {
     }
     return averageRatings;
   }
+  public Double getAverageRatingByRecipeId(Long recipeId) {
+    List<Rating> ratings = ratingRepository.findByRecipeId(recipeId);
+    return ratings.stream().mapToInt(Rating::getScore).average().orElse(0.0);
+  }
+
+  public Long getRatingCountByRecipeId(Long recipeId) {
+    return ratingRepository.countByRecipeId(recipeId);
+  }
 }

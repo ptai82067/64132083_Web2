@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin CMS - Khoa CNTT ĐH Nha Trang</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chi tiết công thức - CookBook</title>
     <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet" />
     <style>
+        /* Giữ nguyên style sidebar, content, footer như bạn đã viết */
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #f4f7fa;
@@ -33,35 +33,22 @@
             background-color: #2563eb;
             color: white;
         }
-        .sidebar .nav-link[type="submit"] {
-            background: none;
-            border: none;
-            text-align: left;
-            width: 92%;
-            cursor: pointer;
-            appearance: none;
-            box-sizing: border-box; /* Đảm bảo padding không làm tăng chiều rộng */
-        }
-        .sidebar .nav-link[type="submit"]:hover {
-            background-color: #2563eb;
-            color: white;
-        }
         .content {
             margin-left: 250px;
             padding: 20px;
-        }
-        .navbar {
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .card {
             border: none;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: all 0.3s;
+            margin-bottom: 20px;
         }
-        .card:hover {
-            transform: translateY(-5px);
+        .card-img-top {
+            border-radius: 10px;
+            max-height: 400px;
+            object-fit: cover;
+            width: 100%;
         }
         .footer {
             background-color: #1e3a8a;
@@ -70,18 +57,6 @@
             margin-left: 250px;
             margin-top: 40px;
             border-top: 4px solid #2563eb;
-        }
-        .footer a {
-            color: #d1d5db;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .footer a:hover {
-            color: #ffffff;
-        }
-        .footer .social-icons a {
-            font-size: 1.5rem;
-            margin: 0 10px;
         }
         @media (max-width: 768px) {
             .sidebar {
@@ -107,15 +82,22 @@
 <!-- Main Content -->
 <div class="container-fluid">
     <div class="content">
-        <h1>Đay la recipe-detail</h1>
+        <div th:if="${recipe != null}">
+            <h1 th:text="${recipe.title}"></h1>
+            <!-- Hiển thị chi tiết recipe -->
+        </div>
+        <div th:if="${recipe == null}">
+            <p>Không tìm thấy công thức.</p>
+        </div>
     </div>
 </div>
 
-
+<footer>
+    <div class="mt-4 p-5 bg-primary text-white rounded">
+        <h1>CookBook</h1>
+        <p>Phạm Phước Tài &copy; 2025</p>
+    </div>
+</footer>
 
 </body>
-<footer><div class="mt-4 p-5 bg-primary text-white rounded">
-    <h1>CookBook</h1>
-    <p>Phạm Phước Tài &copy 2025</p>
-</div></footer>
 </html>

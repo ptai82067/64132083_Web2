@@ -7,7 +7,9 @@ import edu.taipp.repository.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class RecipeService {
@@ -59,5 +61,33 @@ public class RecipeService {
       throw new RuntimeException("Only the owner can delete this recipe");
     }
     recipeRepository.deleteById(id);
+  }
+
+
+
+  public List<Recipe> getSuggestedRecipes(Long recipeId) {
+    Recipe currentRecipe = getRecipeById(recipeId);
+    Long categoryId = currentRecipe.getCategory().getId(); // Giả sử Recipe có getter này
+
+    // Lấy tất cả công thức cùng danh mục, trừ công thức hiện tại
+    List<Recipe> similarRecipes = recipeRepository.findAll()
+            .stream()
+            .filter(recipe -> !recipe.getId().equals(recipeId) && recipe.getCategory().getId().equals(categoryId))
+            .collect(Collectors.toList());
+
+    // Nếu không đủ 4 công thức, bổ sung ngẫu nhiên từ các công thức khác
+    if (similarRecipes.size() < 4) {
+      List<Recipe> otherRecipes = recipeRepository.findAll()
+              .stream()
+              .filter(recipe -> !recipe.getId().equals(recipeId) && !recipe.getCategory().getId().equals(categoryId))
+              .collect(Collectors.toList());
+      similarRecipes.addAll(otherRecipes);
+    }
+
+    // Xáo trộn và lấy tối đa 4 công thức
+    Collections.shuffle(similarRecipes);
+    return similarRecipes.stream()
+            .limit(4)
+            .collect(Collectors.toList());
   }
 }

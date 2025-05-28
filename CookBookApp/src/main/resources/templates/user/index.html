@@ -108,16 +108,18 @@
 <div class="container">
     <h2>Công thức nổi bật</h2>
     <div class="recipe-list">
-        <!-- Sử dụng grid với row và col -->
         <div class="row">
             <div class="col-md-4 col-sm-6 col-12" th:each="recipe : ${recipes}">
-                <!-- Sử dụng card -->
                 <div class="card p-3 m-2">
-                    <img th:src="${recipe.imageUrl}" class="card-img-top" alt="Recipe Image">
+                    <img th:src="${recipe.imageUrl != null and recipe.imageUrl != ''} ?
+                                 ${recipe.imageUrl} :
+                                 'https://via.placeholder.com/400x200'"
+                         class="card-img-top" alt="Ảnh công thức" />
                     <div class="card-body">
                         <h4 class="card-title" th:text="${recipe.title}">Tiêu đề công thức</h4>
                         <p class="card-text" th:text="${recipe.description}">Mô tả công thức</p>
-                        <a th:href="@{'/recipe-detail?id=' + ${recipe.id}}" class="btn btn-primary">Xem chi tiết</a>
+                        <a th:href="@{'/recipe-detail/' + ${recipe.id}}" class="btn btn-primary">Xem chi tiết</a>
+
                     </div>
                 </div>
             </div>
